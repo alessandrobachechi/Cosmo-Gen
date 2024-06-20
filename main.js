@@ -1,17 +1,30 @@
 import "./style.css";
 import Zdog from "zdog";
+import { Howl, Howler } from "howler";
 import { createEye } from "./accessories/eye";
 import { createBody } from "./accessories/body";
 import { createEars } from "./accessories/ears";
 import { createConeHat } from "./accessories/coneHat";
 import { randomElementFromArray, random, hashCode, seedRandom } from "./random";
 import { createMouth } from "./accessories/mouth";
+
 let planetSize;
 let planet;
 let isDragging = false; // Variabile per tracciare il trascinamento
+let bgNoise = new Howl({
+  src: ["ambient.mp3"],
+  html5: true,
+  loop: true,
+});
 
 // Three.js variables
 let scene, camera, renderer, particles, particleSystem;
+
+const playSound = () => {
+  bgNoise.play();
+  document.removeEventListener("click", playSound);
+};
+document.addEventListener("click", playSound);
 
 document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.getElementById("startButton");
