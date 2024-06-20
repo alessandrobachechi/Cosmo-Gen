@@ -1,12 +1,14 @@
 import "./style.css";
 import Zdog from "zdog";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import { createEye } from "./accessories/eye";
 import { createBody } from "./accessories/body";
 import { createEars } from "./accessories/ears";
 import { createConeHat } from "./accessories/coneHat";
 import { randomElementFromArray, random, hashCode, seedRandom } from "./random";
 import { createMouth } from "./accessories/mouth";
+import gsap from "gsap";
+import Splitting from "splitting";
 
 let planetSize;
 let planet;
@@ -27,6 +29,20 @@ const playSound = () => {
 document.addEventListener("click", playSound);
 
 document.addEventListener("DOMContentLoaded", () => {
+  Splitting({ target: "#home h1", by: "chars" });
+  Splitting({ target: "#home p", by: "words" });
+
+  const tl = gsap.timeline({ defaults: { duration: 1.4, ease: "power4.out" } });
+
+  tl.from("#home h1 span", { y: "100%", opacity: 0, stagger: 0.1 })
+    .from("#home p span", { y: "100%", opacity: 0, stagger: 0.05 }, "-=1")
+    .fromTo(
+      "#startButton",
+      { y: "100%", opacity: 0 },
+      { y: "0%", opacity: 1 },
+      "-=1"
+    );
+
   const startButton = document.getElementById("startButton");
   const homeSection = document.getElementById("home");
   const formSection = document.getElementById("formSection");
