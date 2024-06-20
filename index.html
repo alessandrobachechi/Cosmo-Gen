@@ -3,12 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- HTML Meta Tags -->
     <title>CosmoGen | AleBachechi</title>
     <meta name="description" content="Generate your custom planet." />
-
-    <!-- Facebook Meta Tags -->
     <meta
       property="og:url"
       content="https://cosmogen.alessandrobachechi.com/"
@@ -20,8 +16,6 @@
       property="og:image"
       content="https://cosmogen.alessandrobachechi.com/public/boh.png"
     />
-
-    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="cosmogen.alessandrobachechi.com" />
     <meta
@@ -34,9 +28,6 @@
       name="twitter:image"
       content="https://cosmogen.alessandrobachechi.com/public/boh.png"
     />
-
-    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
-
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" type="module" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -46,13 +37,11 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 
-      viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>"
     />
   </head>
   <body>
     <canvas id="backgroundCanvas"></canvas>
-
     <div id="home" class="container">
       <h1>CosmoGen</h1>
       <p>
@@ -61,7 +50,6 @@
       </p>
       <button id="startButton" class="button">Cominciamo</button>
     </div>
-
     <div id="formSection" class="container" style="display: none">
       <form id="planetForm">
         <input type="text" id="name" placeholder="Nome" required />
@@ -70,7 +58,6 @@
         <button type="submit" class="button">Genera</button>
       </form>
     </div>
-
     <div id="planetSection" class="container" style="display: none">
       <div id="planetContainer"></div>
     </div>

@@ -84,6 +84,8 @@ const initThreeJS = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x000000, 0); // Transparent background
 
+  window.addEventListener("resize", onWindowResize);
+
   let particleCount = 500; // Increased number of particles
   particles = new THREE.BufferGeometry();
   let pMaterial = new THREE.PointsMaterial({
@@ -107,6 +109,12 @@ const initThreeJS = () => {
 
   particleSystem = new THREE.Points(particles, pMaterial);
   scene.add(particleSystem);
+};
+
+const onWindowResize = () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 };
 
 const animate = () => {
